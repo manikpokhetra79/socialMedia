@@ -16,5 +16,7 @@
     "url": "https://github.com/manikpokhetra79/socialMedia/issues"
   },
   "homepage": "https://github.com/manikpokhetra79/socialMedia#readme",
-  "dependencies": {}
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
