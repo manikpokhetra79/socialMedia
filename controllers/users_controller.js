@@ -10,3 +10,7 @@ module.exports.register = function(req,res){
 module.exports.login = function(req,res){
     return res.render('user_login');
 }
+
+//create user
+
+//create session

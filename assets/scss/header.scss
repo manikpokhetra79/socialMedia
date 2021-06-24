@@ -4,18 +4,20 @@ $transit-2s : all 0.2s ease-in-out;
     background-color: #272727;
       display: flex;
       justify-content: space-between;
+      box-shadow: 0 8px 6px -6px #999;
   
       li{
           list-style-type: none;
           display: inline-flex;
           margin-right : 1.2rem;
+          
       }
       a{
         font-family: $courier-new;
         color: #ff652f;
        text-decoration: none;
        font-size: 1.2rem;
-       font-weight: 500;
+       font-weight: 700;
        letter-spacing: 1.5px;
        &:hover{
         color: #45a29e;
