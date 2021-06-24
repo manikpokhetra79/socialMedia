@@ -41,9 +41,9 @@ module.exports.create = function(req,res){
             console.log("User already registered");
             return res.redirect('/users/login');
         }
-
     });
-
 }
 
 //create session
+//steps
+//install cookie parser, express session , passport
