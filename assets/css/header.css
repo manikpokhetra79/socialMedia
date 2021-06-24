@@ -1,0 +1,18 @@
+#navbar {
+  background-color: #272727;
+  display: flex;
+  justify-content: space-between; }
+  #navbar li {
+    list-style-type: none;
+    display: inline-flex;
+    margin-right: 1.2rem; }
+  #navbar a {
+    font-family: 'Courier New', Courier, monospace;
+    color: #ff652f;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: 1.5px; }
+    #navbar a:hover {
+      color: #45a29e;
+      transition: all 0.2s ease-in-out; }
