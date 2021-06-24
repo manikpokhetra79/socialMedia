@@ -1,0 +1,22 @@
+#form-container{
+    display: flex;
+    justify-content: center;
+    form{
+       
+        display: flex;
+        flex-direction: column;
+    
+    }
+    form input{
+        padding: 1rem;
+        font-size: 1.2rem;
+    }
+    form input[type = "submit"]{
+        background-color: #45a29e;
+        outline: none;
+        color: white;
+        &:hover{
+            background-color: #3dcac3;
+        }
+    }
+}

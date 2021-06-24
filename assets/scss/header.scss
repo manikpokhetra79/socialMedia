@@ -1,4 +1,4 @@
-
+$courier-new : 'Courier New', Courier, monospace;
 $transit-2s : all 0.2s ease-in-out;
 #navbar{
     background-color: #272727;
@@ -11,7 +11,7 @@ $transit-2s : all 0.2s ease-in-out;
           margin-right : 1.2rem;
       }
       a{
-        font-family: 'Courier New', Courier, monospace;
+        font-family: $courier-new;
         color: #ff652f;
        text-decoration: none;
        font-size: 1.2rem;

@@ -1,3 +1,10 @@
 body {
   margin: 0;
   font-size: 18px; }
+  body h1, body h2, body h3, body h4 {
+    color: #45a29e;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center; }
+  body main {
+    position: relative;
+    min-height: 80vh; }
