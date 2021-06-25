@@ -5,8 +5,13 @@
         </li>
     </ul>
        <ul>
-            <li><a href="/users/register">Register</a></li>
-            <li> <a href="/users/login">Login</a>
-            </li>
+           <% if(locals.user){ %> 
+            <li><a href="/users/profile"><%= user.name %></a></li>
+            <li> <a href="/users/sign-Out">Sign Out</a>
+            <%}else {%> 
+                <li><a href="/users/register">Register</a></li>
+                <li> <a href="/users/login">Login</a></li>
+                <%}%>
+           
        </ul>
 </header>
