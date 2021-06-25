@@ -4,10 +4,14 @@ const expressLayouts = require('express-ejs-layouts');
 const sassMiddleware = require('node-sass-middleware');
 const cookieParser = require('cookie-parser');
 const app = express();
+//session cookie and passport authentication
 const session = require('express-session');
 const passport = require('passport');
 const passportLocal = require('./config/passport-local');
+//mongoDB
 const db = require('./config/mongoose');  //look out for database file
+const MongoStore = require('connect-mongo')(session);
+
 // scss setup
 app.use(sassMiddleware({
     src :'./assets/scss',
@@ -36,8 +40,17 @@ app.use(session({
     saveUninitialized : false,
     cookie: {
         maxAge : (1000 * 60 *100),
-    } 
-}))
+    } ,
+    store:  new MongoStore(
+        {
+            mongooseConnection : db,
+            autoRemove : 'disabled'
+        },
+    function(err){
+        console.log(err || 'connect mongodb setup ok');
+    }
+    )
+}));
 
 app.use(passport.initialize());
 app.use(passport.session());

@@ -1,4 +1,5 @@
 const User = require('../models/users');
+const Post = require('../models/posts');
 //page actions
 
 module.exports.user = function(req,res){
@@ -12,11 +13,17 @@ module.exports.profile = function(req,res){
 }
 
 module.exports.register = function(req,res){
+    if(req.isAuthenticated()){
+        res.redirect('/users/profile');
+    }
     return res.render('user_register',{
         title: "Register"
     });
 }
 module.exports.login = function(req,res){
+    if(req.isAuthenticated()){
+        res.redirect('/users/profile');
+    }
     return res.render('user_login',{
         title: "Login"
     });
@@ -55,12 +62,12 @@ module.exports.create = function(req,res){
 
 //create session
 module.exports.createSession = function(req,res){
-    return res.redirect('/');
+    return res.redirect('/users/profile');
 }
 
 //signout
 
 module.exports.deleteSession = function(req,res){
     req.logout();
-    res.redirect('/users/login');
+   return res.redirect('/users/login');
 }
