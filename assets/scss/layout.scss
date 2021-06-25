@@ -7,8 +7,14 @@ body{
     font-family: sans-serif;
     h1,h2,h3,h4{
         color: #45a29e;
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-family:cursive;
         text-align: center;
+    }
+    p{
+        font-family:cursive;
+    }
+    .fa {
+        color: #45a29e;
     }
    
     #layout-main{
@@ -20,26 +26,73 @@ body{
 }
 
 #posts-list-container{
-    #author-details{
+    display: flex;
+    padding: 1.5rem;
+   
+    .author-details{
         display: flex;
         align-items: center;
-
         i{
             margin-right  : 1.2rem;
         }
-
     }
     li{
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         background-color: rgb(255, 255, 255);
         list-style-type: none;
-        padding: 2rem;
-        border: 2px solid rgb(250, 250, 250);
-        border-radius: 5%;
+        padding:1rem 2rem;
+        border-radius: 3rem 2rem;
         margin : 2rem 0;
         max-width: 50vw;
         }
         p{
             font-size: 1.1rem;
     }
-
+    .post-comments{
+        
+        form{
+            display: flex;
+            flex-flow: row-wrap;
+            align-items: center;
+            textarea{
+                margin-top: 2rem;
+                font-size: 1rem;
+                font-family:cursive;
+                text-align: center;
+            }
+            textarea:focus{
+                outline: none;
+            }
+            input[type="submit"]{
+                font-family:cursive;
+                margin-left: 1.2rem;
+                padding: 1.1rem;
+                background-color: #45a29e;
+                color: #fff;
+                border-bottom-right-radius:200px;
+	            border-top-left-radius:200px;
+                border-color : #fff;
+                &:hover{
+                    background-color: #179edd;
+                    transform: scale(1.1);
+                }
+            }
+        }
+        // post comment scss
+        .post-comments-list{
+            margin-top : 1.5rem;
+            border-radius: 3rem 2rem;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            .comment-content{
+                padding-bottom: 1%;
+            }
+            li{
+                box-shadow:none;
+            }
+            h4{
+                text-align: left;
+                text-transform: uppercase;
+            }
+        }
+    }
     }

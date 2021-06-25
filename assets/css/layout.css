@@ -7,28 +7,67 @@ body {
   font-family: sans-serif; }
   body h1, body h2, body h3, body h4 {
     color: #45a29e;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: cursive;
     text-align: center; }
+  body p {
+    font-family: cursive; }
+  body .fa {
+    color: #45a29e; }
   body #layout-main {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-bottom: 3.5rem; }
 
-#posts-list-container #author-details {
+#posts-list-container {
   display: flex;
-  align-items: center; }
-  #posts-list-container #author-details i {
-    margin-right: 1.2rem; }
-
-#posts-list-container li {
-  background-color: white;
-  list-style-type: none;
-  padding: 2rem;
-  border: 2px solid #fafafa;
-  border-radius: 5%;
-  margin: 2rem 0;
-  max-width: 50vw; }
-
-#posts-list-container p {
-  font-size: 1.1rem; }
+  padding: 1.5rem; }
+  #posts-list-container .author-details {
+    display: flex;
+    align-items: center; }
+    #posts-list-container .author-details i {
+      margin-right: 1.2rem; }
+  #posts-list-container li {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: white;
+    list-style-type: none;
+    padding: 1rem 2rem;
+    border-radius: 3rem 2rem;
+    margin: 2rem 0;
+    max-width: 50vw; }
+  #posts-list-container p {
+    font-size: 1.1rem; }
+  #posts-list-container .post-comments form {
+    display: flex;
+    flex-flow: row-wrap;
+    align-items: center; }
+    #posts-list-container .post-comments form textarea {
+      margin-top: 2rem;
+      font-size: 1rem;
+      font-family: cursive;
+      text-align: center; }
+    #posts-list-container .post-comments form textarea:focus {
+      outline: none; }
+    #posts-list-container .post-comments form input[type="submit"] {
+      font-family: cursive;
+      margin-left: 1.2rem;
+      padding: 1.1rem;
+      background-color: #45a29e;
+      color: #fff;
+      border-bottom-right-radius: 200px;
+      border-top-left-radius: 200px;
+      border-color: #fff; }
+      #posts-list-container .post-comments form input[type="submit"]:hover {
+        background-color: #179edd;
+        transform: scale(1.1); }
+  #posts-list-container .post-comments .post-comments-list {
+    margin-top: 1.5rem;
+    border-radius: 3rem 2rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
+    #posts-list-container .post-comments .post-comments-list .comment-content {
+      padding-bottom: 1%; }
+    #posts-list-container .post-comments .post-comments-list li {
+      box-shadow: none; }
+    #posts-list-container .post-comments .post-comments-list h4 {
+      text-align: left;
+      text-transform: uppercase; }
