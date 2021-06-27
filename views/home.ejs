@@ -28,8 +28,8 @@
                     <small>
                         <%=posts.user.name%>
                     </small>
-                    <% if((locals.user) && (locals.user.id == posts.user.id)){%>
-                        <!-- delete button for posts -->
+                    <!-- delete button for posts -->
+                    <% if((locals.user) && (locals.user.id == posts.user.id)){%> 
                         <small>
                             <a href="posts/destroy/<%= posts.id%>">  
                             <i class="fas fa-window-close fa-2x"></i>
@@ -59,6 +59,14 @@
                                     <small>
                                         <%=comment.user.name%>
                                     </small>
+                                    <!-- delete button for posts -->
+                            <% if((locals.user) && (locals.user.id == comment.user.id)){%> 
+                                <small>
+                                    <a href="comments/destroy/<%= comment.id%>">  
+                                    <i class="fas fa-window-close fa-2x"></i>
+                                </a>
+                            </small>
+                        <% }%>
                                     </div>
                                     <div class="comment-content">
                                     <p>
