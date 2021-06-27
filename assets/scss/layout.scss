@@ -16,6 +16,15 @@ body{
     .fa {
         color: #45a29e;
     }
+    .fas{
+        color: rgb(196, 33, 33);
+        margin-left: 1.2rem;
+        &:hover{
+            color: #179edd;
+            transform: scale(1.1);
+        }
+    }
+    
    
     #layout-main{
         display: flex;

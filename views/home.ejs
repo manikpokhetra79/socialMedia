@@ -1,5 +1,10 @@
 
-<h2>Homepage</h2>
+<h2>Hello <% if(locals.user){ %> 
+    <%=locals.user.name %> !
+    <% }else{%>
+        Visitor !
+    <%}%>
+</h2>
 <section id="feed-posts">
 <div id="form-container">
     <% if(locals.user){ %> 
@@ -23,6 +28,15 @@
                     <small>
                         <%=posts.user.name%>
                     </small>
+                    <% if((locals.user) && (locals.user.id == posts.user.id)){%>
+                        <!-- delete button for posts -->
+                        <small>
+                            <a href="posts/destroy/<%= posts.id%>">  
+                            <i class="fas fa-window-close fa-2x"></i>
+                        </a>
+                    </small>
+                   <% }%>
+                   
                     </div>
                     <div class="post-content"><p><%= posts.content%></p></div>
                     <div class="post-comments">

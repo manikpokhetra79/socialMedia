@@ -13,6 +13,12 @@ body {
     font-family: cursive; }
   body .fa {
     color: #45a29e; }
+  body .fas {
+    color: #c42121;
+    margin-left: 1.2rem; }
+    body .fas:hover {
+      color: #179edd;
+      transform: scale(1.1); }
   body #layout-main {
     display: flex;
     flex-direction: column;
