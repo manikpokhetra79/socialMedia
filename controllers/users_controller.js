@@ -7,11 +7,28 @@ module.exports.user = function(req,res){
 }
 
 module.exports.profile = function(req,res){
-    return res.render('user_profile',{
-        title: 'Profile Page'
-    });
+    User.findById(req.params.id,function(err,user){
+        return res.render('user_profile',{
+            title: 'Profile Page',
+            profile_user : user
+        });
+    })
+   
 }
+// action for updating user details
+module.exports.update = function(req,res){
+    console.log(req.user._id);
+    console.log(req.params.id);
+    if(req.user._id == req.params.id){
+        User.findByIdAndUpdate(req.params.id,req.body,function(err,user){
+            console.log(user);
+            return res.redirect('back');
+        });
+    }else{
+        return res.status(401).send("Unauthorized request");
+    }
 
+}
 module.exports.register = function(req,res){
     if(req.isAuthenticated()){
         res.redirect('/users/profile');
@@ -62,7 +79,7 @@ module.exports.create = function(req,res){
 
 //create session
 module.exports.createSession = function(req,res){
-    return res.redirect('/users/profile');
+    return res.redirect('/');
 }
 
 //signout
