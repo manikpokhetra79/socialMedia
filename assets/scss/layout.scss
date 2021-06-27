@@ -29,7 +29,6 @@ body{
     #layout-main{
         display: flex;
         flex-direction: column;
-        align-items: center;
         padding-bottom:3.5rem;  
     }
 }
@@ -104,4 +103,19 @@ body{
             }
         }
     }
+    }
+
+    // css for homepage sections
+
+    #home-flex-container{
+        display: inline-flex;
+
+        #main-body-container{
+            width: 70%;
+        }
+        aside{
+            width:30%;
+            border-left : 1px solid rgb(187, 186, 186);
+            padding: 1.2rem;
+        }
     }
