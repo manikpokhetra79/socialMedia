@@ -1,11 +1,11 @@
 const User = require('../models/users');
 const Post = require('../models/posts');
 //page actions
-
 module.exports.user = function(req,res){
     return res.render('user_login');
 }
 
+// lets keep it same as before
 module.exports.profile = function(req,res){
     User.findById(req.params.id,function(err,user){
         return res.render('user_profile',{
@@ -17,8 +17,6 @@ module.exports.profile = function(req,res){
 }
 // action for updating user details
 module.exports.update = function(req,res){
-    console.log(req.user._id);
-    console.log(req.params.id);
     if(req.user._id == req.params.id){
         User.findByIdAndUpdate(req.params.id,req.body,function(err,user){
             console.log(user);
@@ -29,6 +27,7 @@ module.exports.update = function(req,res){
     }
 
 }
+
 module.exports.register = function(req,res){
     if(req.isAuthenticated()){
         res.redirect('/users/profile');
