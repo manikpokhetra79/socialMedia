@@ -1,7 +1,6 @@
 const express = require('express');
 const port = 8000;;
 const expressLayouts = require('express-ejs-layouts');
-const sassMiddleware = require('node-sass-middleware');
 const cookieParser = require('cookie-parser');
 const app = express();
 //session cookie and passport authentication
@@ -11,6 +10,10 @@ const passportLocal = require('./config/passport-local');
 //mongoDB
 const db = require('./config/mongoose');  //look out for database file
 const MongoStore = require('connect-mongo')(session);
+const sassMiddleware = require('node-sass-middleware');
+// flash message
+const flash = require('connect-flash');
+const customMware = require('./config/middleware');
 
 // scss setup
 app.use(sassMiddleware({
@@ -54,6 +57,10 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
+// setup flash message
+app.use(flash());
+app.use(customMware.setFlash);
+
 
 // to set details to local.user from req.user
 app.use(passport.setAuthenticatedUser);

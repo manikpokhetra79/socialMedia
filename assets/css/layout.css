@@ -85,3 +85,16 @@ body {
     width: 30%;
     border-left: 1px solid #bbbaba;
     padding: 1.2rem; }
+
+#flash-notification {
+  position: absolute;
+  left: 0px;
+  top: 59px;
+  z-index: 99;
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px; }

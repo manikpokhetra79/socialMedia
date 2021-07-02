@@ -119,3 +119,25 @@ body{
             padding: 1.2rem;
         }
     }
+
+    // flash notification
+
+    // #flash-notification{
+    //     padding: 20px;
+    //     background-color: #2FB986; /* Red */
+    //     color: white;
+    //     margin-bottom: 15px;
+    // }
+    #flash-notification{
+        position: absolute;
+        left: 0px;
+        top: 59px;
+        z-index: 99;
+        color: #3c763d;
+        background-color: #dff0d8;
+        border-color: #d6e9c6;
+        padding: 15px;
+        margin-bottom: 20px;
+        border: 1px solid transparent;
+        border-radius: 4px;
+    }
