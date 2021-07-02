@@ -8,11 +8,11 @@ module.exports.create = async function(req,res){
             content: req.body.content,
             user : req.user._id
         });
-        console.log("posts created");
+        req.flash('success',"Post Published !");
         return res.redirect('back');
     } catch (error) {  
-            console.log("Error while creating post",error);
-            return;
+        req.flash('error',"Error");
+        return res.redirect('back');
     }
 }
 
@@ -23,13 +23,14 @@ try {
     if(post.user == req.user.id){
         post.remove();
         await Comment.deleteMany({post : req.params.id});
+        req.flash('success',"Post and associated Comments deleted");
         return res.redirect('back');
     }else{
          return res.redirect('back');
 }
 } catch (error) {
-    console.log('error while deleting post',error);
-    return;
+    req.flash('error',"You cannot delete this post");
+    return res.redirect('back');
 }
 }
 

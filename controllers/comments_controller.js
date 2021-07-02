@@ -15,11 +15,12 @@ module.exports.create = async function(req,res){
 
             post.comments.push(comment);
             post.save();
-            res.redirect('/');
+            req.flash('success','Comment published successfully');
+            res.redirect('back');
        }       
     } catch (error) {
-        console.log("Error while creating comments" ,error);
-        return;
+        req.flash('error','error');
+        res.redirect('back');
     }
    
 }
@@ -33,14 +34,16 @@ try {
         comment.remove();
         let post = Post.findByIdAndUpdate(postId,{pull :
              {comment : req.params.id}});
-             console.log("deleting comments");
+             req.flash('success','Comment deleted successfully');
         return res.redirect('back');
     }else{
+        req.flash('error','Error while deleting comments');
+        
          return res.redirect('back');
     } 
 
 } catch (error) {
-    console.log("Error while deleting comments" ,error);
+    req.flash('error','Error while deleting comments')
     return;
 }
        
