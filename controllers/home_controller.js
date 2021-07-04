@@ -7,6 +7,7 @@ module.exports.home = async function(req,res){
 try {
     
     let posts = await Post.find({})
+    .sort('-createdAt')  // to view posts via latest created at
     .populate('user')
     .populate({
         path: 'comments',
