@@ -14,7 +14,14 @@
                     let newPost = newPostDom(data.data.post);
                     $('#posts-list-container>ul').prepend(newPost);
                     deletePost($(' .delete-post-button',newPost));
-                    console.log(data);
+                    new Noty({
+                        theme: 'metroui',
+                        text: "Post published!",
+                        type: 'success',
+                        layout: 'topRight',
+                        timeout: 1500
+                        
+                    }).show();
                 },
                 error : function(error){
                     console.log(error.responseText);
@@ -31,7 +38,7 @@
         <div id="author-details">
             <i class="fa fa-user-circle fa-2x" aria-hidden="true"></i>
             <small>
-            ${ post.user }
+            ${ post.user.name }
             </small>
             <!-- delete button for posts -->
             <small>
@@ -70,7 +77,14 @@
             url  :  $(deleteLink).prop('href'),
             success : function(data){
                 $(`#post-${data.data.post_id}`).remove();
-                console.log("Post deleted dynamically");
+                new Noty({
+                    theme: 'metroui',
+                    text: "Post Deleted!",
+                    type: 'success',
+                    layout: 'topRight',
+                    timeout: 1500
+                    
+                }).show();
             },
             error: function(err){
                 console.log(err.responseText);
@@ -79,6 +93,17 @@
         });
         
     }
+    // ajax convert to make every  post deletion dynamic by calling above function for every li tag
+    let ConvertPostsToAjax = function(e){
+        //loop on every post li
+        $('#posts-list-container>ul>li').each(function(){
+            let self = $(this);
+            let deleteButton = $(' .delete-post-button',self); 
+             // populate deletepost function for every post
+            deletePost(deleteButton);
+        });  
+    }
     createPost();
+    ConvertPostsToAjax();
 
 }
