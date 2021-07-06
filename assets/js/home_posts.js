@@ -5,7 +5,7 @@
 
         newPostForm.submit(function(e){
             e.preventDefault();
-
+            // ajax call using jquery
             $.ajax({
                 type: 'post',
                 url : '/posts/create',
@@ -13,10 +13,14 @@
                 success: function(data){
                     let newPost = newPostDom(data.data.post);
                     $('#posts-list-container>ul').prepend(newPost);
-                    deletePost($(' .delete-post-button',newPost));
+                    //to populate deletelink argument in every post
+                    deletePost($(' .delete-post-button',newPost)); //we are getting the object
+                    // call postcomments class
+                    new PostComments(data.data.post._id);
+                    
                     new Noty({
                         theme: 'metroui',
-                        text: "Post published!",
+                        text: "Dynamic Post published!",
                         type: 'success',
                         layout: 'topRight',
                         timeout: 1500
@@ -27,7 +31,6 @@
                     console.log(error.responseText);
                 }
             });
-            // ajax ending
         });
     }
 
@@ -51,17 +54,17 @@
             <p>${post.content}</p>
             </div>
             <div class="post-comments">
-
-                <form action="/comments/create" method="POST">
+                <form id="post-${post._id}-comments-form" action="/comments/create" method="POST">
                 <textarea name="content"  cols="40" rows="4"  placeholder="Type Here to add comment..." required></textarea>
                 <input type="hidden" name="post" value="${post._id}" >
                 <input type="submit" value="Add Comment">
                  </form>
-      
+                 <!-- post comment container -->
             <div class="post-comments-list">
             <ul id="post-comments-${post._id}">
             <h4>Comments</h4>
             </ul>
+            <!-- post comment ending -->
             </div>
         </div>
     </li>`)
@@ -79,7 +82,7 @@
                 $(`#post-${data.data.post_id}`).remove();
                 new Noty({
                     theme: 'metroui',
-                    text: "Post Deleted!",
+                    text: " Dynamic Post Deleted!",
                     type: 'success',
                     layout: 'topRight',
                     timeout: 1500
@@ -101,9 +104,15 @@
             let deleteButton = $(' .delete-post-button',self); 
              // populate deletepost function for every post
             deletePost(deleteButton);
+             // get the post's id by splitting the id attribute
+             //below code to make all comments deletion dynamic
+             let postId = self.prop('id').split("-")[1];
+             console.log(postId);
+             new PostComments(postId);
         });  
     }
     createPost();
     ConvertPostsToAjax();
+
 
 }

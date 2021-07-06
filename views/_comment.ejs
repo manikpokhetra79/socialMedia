@@ -1,5 +1,5 @@
-<li>
-                
+
+<li id="comment-<%=comment.id%>">           
     <div class="author-details">
         <i class="fa fa-comments fa-2x" aria-hidden="true"></i>
     <small>
@@ -8,7 +8,7 @@
     <!-- delete button for posts -->
 <% if((locals.user) && (locals.user.id == comment.user.id)){%> 
 <small>
-    <a href="comments/destroy/<%= comment.id%>">  
+    <a class="delete-comment-button" href="comments/destroy/<%=comment.id%>">  
     <i class="fas fa-window-close fa-2x"></i>
 </a>
 </small>
