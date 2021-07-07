@@ -107,7 +107,6 @@
              // get the post's id by splitting the id attribute
              //below code to make all comments deletion dynamic
              let postId = self.prop('id').split("-")[1];
-             console.log(postId);
              new PostComments(postId);
         });  
     }
