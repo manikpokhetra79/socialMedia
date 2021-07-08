@@ -7,6 +7,7 @@ const app = express();
 const session = require('express-session');
 const passport = require('passport');
 const passportLocal = require('./config/passport-local');
+const passportJwt = require('./config/passport-jwt-strategy');
 //mongoDB
 const db = require('./config/mongoose');  //look out for database file
 const MongoStore = require('connect-mongo')(session);
