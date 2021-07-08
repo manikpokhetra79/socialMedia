@@ -28,11 +28,11 @@ module.exports.update = async function(req,res){
                 }
                 user.name = req.body.name;
                 user.email = req.body.email;
-                console.log(req.file);
                 if(req.file){
+
                     if(user.avatar){
                         // it will remove previous path from file system
-                        fs.unlinkSync(path.join(__dirname + '..' + user.avatar));
+                        fs.unlinkSync(path.join(__dirname , '..' , user.avatar));
                     }
                     //saving the path of uploaded file into the avatar field in the user
                     user.avatar = User.avatarPath + '/' + req.file.filename;

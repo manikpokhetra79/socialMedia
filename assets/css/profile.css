@@ -1,0 +1,19 @@
+#profile-main-body {
+  display: flex;
+  flex-flow: row wrap; }
+  #profile-main-body #user-profile {
+    padding-left: 3rem;
+    padding-top: 2.5rem;
+    width: 40%; }
+    #profile-main-body #user-profile #user-profile-pic {
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 5px;
+      width: 150px; }
+    #profile-main-body #user-profile #user-profile-pic img {
+      max-width: 100%;
+      height: auto; }
+      #profile-main-body #user-profile #user-profile-pic img:hover {
+        box-shadow: 0 0 2px 1px rgba(17, 142, 201, 0.5); }
+  #profile-main-body #profile-update-form {
+    width: 50%; }

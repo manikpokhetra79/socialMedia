@@ -1,25 +1,31 @@
-
+<link rel="stylesheet" href="/css/profile.css">
 <h1><%=profile_user.name%> | Profile Page</h1>
-<section id="user-details">
-    <div id="user-profile-pic">
-        <img src="<%= profile_user.avatar%>" alt="<%=profile_user.name%>" width='100'>
-        
-    </div>
-</section>
-
-
-<% if(user.id == profile_user.id){ %>
-    <h2>Update your Profile Details</h2>
-    <div id="form-container">
-    <form action="/users/update/<%=profile_user.id%>" method="POST" enctype="multipart/form-data">
-        <input type="text" name="name" placeholder="Enter new name" value = "<%=profile_user.name%>"required>
-        <input type="email" name="email" placeholder="Enter new email"  value = "<%=profile_user.email%>" required>
-        <input type="file" name="avatar" placeholder=" Profile Picture">
-        <input type="submit" value="Update Details">
-    </form>
-    </div>
+<div id="profile-main-body">
+    <section id="user-profile">
+        <div id="user-profile-pic">
+            <img src="<%= profile_user.avatar%>" alt="<%=profile_user.name%>">
+        </div>
+        <div id ="user-profile-details">
+            <p><%= profile_user.name%></p>
+        </div>
+    </section>
     
-<% }else{ %>
-    <p><%= profile_user.name%></p>
-    <p><%= profile_user.email%></p>
-<% } %>
+    
+    <section id="profile-update-form">
+        <% if(user.id == profile_user.id){ %>
+            <h2>Update your Profile Details</h2>
+            <div id="form-container">
+            <form action="/users/update/<%=profile_user.id%>" method="POST" enctype="multipart/form-data">
+                <input type="text" name="name" placeholder="Enter new name" value = "<%=profile_user.name%>"required>
+                <input type="email" name="email" placeholder="Enter new email"  value = "<%=profile_user.email%>" required>
+                <input type="file" name="avatar" placeholder=" Profile Picture">
+                <input type="submit" value="Update Details">
+            </form>
+            </div>
+            
+        <% }else{ %>
+            <p>Hey, <%= profile_user.name%>, <br>Login to your profile to update your profile details</p>
+         
+        <% } %>
+    </section>
+</div>

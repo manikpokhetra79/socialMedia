@@ -1,0 +1,30 @@
+#profile-main-body{ 
+    display: flex;
+    flex-flow: row wrap;
+
+    // user profile styles
+    #user-profile{
+        padding-left: 3rem;
+        padding-top : 2.5rem;
+        width: 40%; 
+
+        #user-profile-pic{
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 5px;
+            width: 150px;     
+        }
+        #user-profile-pic img{
+            max-width: 100%;
+            height: auto;
+            &:hover{
+                box-shadow: 0 0 2px 1px rgba(17, 142, 201, 0.5);
+            }
+        }
+    }
+    // profile form styles
+    #profile-update-form{
+        width: 50%;
+    }
+
+}
