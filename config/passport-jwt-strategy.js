@@ -6,7 +6,7 @@ const User = require('../models/users');
 
 // Options 
 let opts =  {
-    jwtFromRequest : ExtarctJWT.fromAuthHeaderAsBearerToken,
+    jwtFromRequest : ExtarctJWT.fromAuthHeaderAsBearerToken(),
     secretOrKey : 'codeial',
 }
 
